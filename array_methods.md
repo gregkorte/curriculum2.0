@@ -56,15 +56,15 @@ For example we may choose to manufacture the raw materials into products then fi
 
 ## Your turn with .map()
 
-**"Please implement the `manufacture` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'"** 
+**Please implement the `manufacture` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'** 
 <script async src="//jsfiddle.net/gczipr/ez6ytfqb/11/embed/js,result/dark/"></script>
 
 ## Your turn with .filter()
 
-**"Please implement the `isFragile` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'"** 
+**Please implement the `isFragile` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'** 
 <script async src="//jsfiddle.net/gczipr/sqahvkuf/5/embed/js,result/dark/"></script>
 
 ## Your turn with .find()
 
-**"Please implement the `findDrinkWare` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'"** 
-<script async src="//jsfiddle.net/gczipr/9wmgb8vn/1/embed/js,result/dark/"></script>
+**Please implement the `findDrinkWare` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'** 
+<script async src="//jsfiddle.net/gczipr/sqahvkuf/7/embed/js,result/dark/"></script>

@@ -6,9 +6,12 @@ In this book's core chapters, you will gain the knowledge and understanding of w
 
 Note: when you're going through these lessons (and others in the coursework) you should start on the left and work your way down that column, then progress to the next column. Once you've finished all the columns in the table, move to the next part of the page.
 
+<a href="/arrays_intro">Interactive Arrays Lesson</a>
+<a href="{{ '/arrays_intro/' | relative_url }}">Interactive Arrays Lesson</a>
+
 | # | 🏠 Foundations Review | 🧸 Leonid's Toys <br/><sub>(_Guided tour_)</sub> | 📔 Daily Notes |
 |--|--|--|--|
-| 1 |[All About Arrays](./chapters/ARRAYS_INTRO.md) <br/> <sub style="font-size:0.85rem;">#arrays</sub> | [Data Types](./chapters/LT_DATA_TYPES.md) <br/> <sub style="font-size:0.85rem;">#data</sub> |  |
+| 1 |[All About Arrays](/ARRAYS_INTRO.md) <br/> <sub style="font-size:0.85rem;">#arrays</sub> | [Data Types](./chapters/LT_DATA_TYPES.md) <br/> <sub style="font-size:0.85rem;">#data</sub> |  |
 | 2 |[Array Item Index](./chapters/ARRAYS_INDICES.md) <br/> <sub style="font-size:0.85rem;">#arrays #index</sub> | [Data Structures](./chapters/LT_DATA_STRUCTURES.md) <br/> <sub style="font-size:0.85rem;">#data #objects #arrays</sub> | [Project Requirements and Algorithm](./chapters/DN_REQUIREMENTS.md) |
 | 3 | [Adding to Arrays](./chapters/ARRAYS_PUSH.md) <br/> <sub style="font-size:0.85rem;">#push()</sub> | [Representing Toys as Objects](./chapters/LT_OBJECTS.md) <br/> <sub style="font-size:0.85rem;">#data #objects</sub> | [Note Objects and Array](./chapters/DN_OBJECTS.md) |
 | 4 | [Arrays and Conditions](./chapters/CONDITIONS_INTRO.md) <br/> <sub style="font-size:0.85rem;">#iteration #conditions</sub> | [Toy Collection](./chapters/LT_ARRAYS.md) <br/> <sub style="font-size:0.85rem;">#data #arrays</sub> | [List of Notes](./chapters/DN_NOTE_LIST.md) |

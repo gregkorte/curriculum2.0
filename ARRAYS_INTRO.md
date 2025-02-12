@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Interactive Arrays Lesson"
-permalink: /all-about-arrays/
 ---
 
 <h1>Arrays (a.k.a. collections of things)</h1>

@@ -23,7 +23,7 @@ const flower4 = "Daisy";
 <div class="code-editor">
   <textarea id="code-example">
 const flowers = ["Tulip", "Rose", "Daffodil", "Daisy"];
-console.log(flowers);
+document.write(flowers);
   </textarea>
   <button onclick="runCode('code-example')">Run Code</button>
   <div id="output-example" class="output"></div>

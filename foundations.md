@@ -6,9 +6,6 @@ In this book's core chapters, you will gain the knowledge and understanding of w
 
 Note: when you're going through these lessons (and others in the coursework) you should start on the left and work your way down that column, then progress to the next column. Once you've finished all the columns in the table, move to the next part of the page.
 
-<a href="/arrays_intro">Interactive Arrays Lesson</a>
-<a href="{{ '/arrays_intro/' | relative_url }}">Interactive Arrays Lesson</a>
-
 | # | 🏠 Foundations Review | 🧸 Leonid's Toys <br/><sub>(_Guided tour_)</sub> | 📔 Daily Notes |
 |--|--|--|--|
 | 1 |[All About Arrays](/ARRAYS_INTRO.md) <br/> <sub style="font-size:0.85rem;">#arrays</sub> | [Data Types](./chapters/LT_DATA_TYPES.md) <br/> <sub style="font-size:0.85rem;">#data</sub> |  |

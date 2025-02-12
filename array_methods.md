@@ -56,52 +56,15 @@ For example we may choose to manufacture the raw materials into products then fi
 
 ## Your turn with .map()
 
-Please implement `manufacture` 
-```js
-function manufacture(item) {
-    //TODO your code here!!!
-}
-
-// Test - Do not change any code starting here
-const rawMaterials = ['🌳', '🏖️', '🧵', '🏺'];
-const expectedProducts = ['📄', '🥂', '👕', '☕️'];
-
-const result = rawMaterials.map(manufacture);
-
-expect(result).toEqual(expectedProducts); 
-// Test - Do not change any code end here
-```
+**"Please implement the `manufacture` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'"** 
+<script async src="//jsfiddle.net/gczipr/ez6ytfqb/11/embed/js,result/dark/"></script>
 
 ## Your turn with .filter()
 
-Please implement `isFragile`
-
-```js
-function isFragile(item) {
-    //TODO your code here!!!
-}
-
-// Test - Do not change any code starting here
-const items = ['📄', '🥂', '👕', '☕️'];
-const result = items.filter(isFragile);
-expect(result).toBe(['🥂', '☕️']);
-// Test - Do not change any code ending here
-```
+**"Please implement the `isFragile` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'"** 
+<script async src="//jsfiddle.net/gczipr/sqahvkuf/5/embed/js,result/dark/"></script>
 
 ## Your turn with .find()
 
-Please implement `findDrinkWare`
-
-```js
-function findDrinkWare(item) {
-  //TODO your code here!!!
-}
-
-// Test - Do not change any code starting here
-const items = ['📄', '🥂', '👕', '☕️'];
-const result = items.find(findDrinkWare);
-expect(result).toBe('🥂');
-// Test - Do not change any code ending here
-```
-
+**"Please implement the `findDrinkWare` function so that you see `Test Passed ✅` instead of `Test Failed ❌`. Only modify the function where it says 'TODO: your code here!!!'"** 
 <script async src="//jsfiddle.net/gczipr/9wmgb8vn/1/embed/js,result/dark/"></script>

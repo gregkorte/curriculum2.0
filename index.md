@@ -2,6 +2,9 @@
 layout: default
 ---
 
-<!-- {% include_relative array_methods.md %} -->
-<!-- {% include_relative foundations.md %} -->
-{% include_relative arraysintro.md %}
+<head>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+{% include_relative ARRAYS_INTRO.md %}
+

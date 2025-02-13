@@ -1,21 +1,14 @@
 ---
 layout: default
+title: Home
 ---
-
 <head>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <div class="header">
-    <img src="nss.png" alt="Nashville Software School Logo">
+    <img src="assets/nss.png" alt="Nashville Software School Logo">
 </div>
-
-{% include_relative ARRAYS_INTRO.md %}
-
----
-layout: default
-title: Home
----
 
 # Welcome to My Documentation
 

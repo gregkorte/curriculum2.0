@@ -31,6 +31,8 @@ As a software developer, you will constantly be working with collections of rela
 
 In this book of the course, you will learn how to access specific items in an array, how to add items to an array, and how to automate the process of targeting each item in the array - in sequence - and doing something with each item.
 
+---
+
 ## Practice: Exploring Arrays
 
 Below are interactive exercises where you can practice working with arrays. Modify the code in each example and observe the output.
@@ -43,6 +45,8 @@ Below are interactive exercises where you can practice working with arrays. Modi
 
 ### Modifying an Array
 <script async src="//jsfiddle.net/gczipr/sqahvkuf/9/embed/js,result/dark/"></script>
+
+---
 
 ## Exercise: Your First Array
 

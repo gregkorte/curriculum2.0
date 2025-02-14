@@ -10,7 +10,7 @@ layout: none
     <img src="{{ "/assets/nss.png" | relative_url }}" alt="Nashville Software School Logo">
 </div>
 
-# {{ page.title }}
+<!-- # {{ page.title | markdownify }} -->
 
 {{ content }}
 

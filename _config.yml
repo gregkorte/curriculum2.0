@@ -17,6 +17,7 @@ include:
   - books
   - chapters
   - styles
+  - assets
 
 # Exclude unnecessary files from the build
 exclude:

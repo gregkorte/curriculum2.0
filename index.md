@@ -2,13 +2,11 @@
 layout: default
 title: Home
 ---
-<head>
-  <link rel="stylesheet" href="./styles/styles.css">
-</head>
 
 <div class="header">
-    <img src="assets/nss.png" alt="Nashville Software School Logo">
+    <img src="{{ "/assets/nss.png" | relative_url }}" alt="Nashville Software School Logo">
 </div>
+
 
 # Welcome to My Documentation
 

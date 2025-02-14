@@ -1,19 +1,15 @@
----
-layout: default
-title: Table of Contents
----
-
 # Table of Contents
 
 ## Client-Side Curriculum
 
-- [Supplement Foundations](client_book_0.md)
-- [Installations](client_book_1.md)
-- [Queen Bee](client_book_2.md)
-- [Martins Aquarium](client_book_3.md)
-- [Deshawns Dog Walking](client_book_4.md)
-- [Kneel Diamonds](client_book_5.md)
-- [Honey Rae Repairs](client_book_6.md)
+- [Supplement Foundations]({{ "/client_book_0.md" | relative_url }})
+- [Installations]({{ "/client_book_1.md" | relative_url }})
+- [Queen Bee]({{ "/client_book_2.md" | relative_url }})
+- [Martins Aquarium]({{ "/client_book_3.md" | relative_url }})
+- [Deshawns Dog Walking]({{ "/client_book_4.md" | relative_url }})
+- [Kneel Diamonds]({{ "/client_book_5.md" | relative_url }})
+- [Honey Rae Repairs]({{ "/client_book_6.md" | relative_url }})
+
 
 
 {% for page in site.pages %}

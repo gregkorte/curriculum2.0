@@ -1,3 +1,8 @@
+---
+layout: default
+title: Supplement Foundations
+---
+
 # Foundational Concepts Review - Leonid's Bespoke Toy Shoppe
 
 ## Core Chapters

@@ -2,6 +2,10 @@
 layout: none
 ---
 
+<head>
+  <link rel="stylesheet" href="{{ "../styles/styles.css" | relative_url }}">
+</head>
+
 # {{ page.title }}
 
 {% include toc.md %}
@@ -11,3 +15,4 @@ layout: none
 <footer>
 Copyright © {{ site.time | date: "%Y" }}
 </footer>
+

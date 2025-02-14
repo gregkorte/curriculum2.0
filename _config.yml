@@ -1,7 +1,7 @@
 title: Curriculum Site
 description: "A structured curriculum for JavaScript, Python, and C#."
 baseurl: "" # Leave empty if using GitHub Pages on the main domain (e.g., yourusername.github.io)
-url: "https://yourusername.github.io/repository-name" # Replace with your GitHub Pages URL
+url: "https://gregkorte.com/curriculum2.0" # Replace with your GitHub Pages URL
 
 # Enable GitHub Pages Jekyll build
 theme: minima # You can replace this with another theme or remove if using custom CSS

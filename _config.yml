@@ -1,10 +1,16 @@
-title: Curriculum Site
+title: Nashville Software School
 description: "A structured curriculum for JavaScript, Python, and C#."
 baseurl: "" # Leave empty if using GitHub Pages on the main domain (e.g., yourusername.github.io)
 url: "https://gregkorte.com/curriculum2.0" # Replace with your GitHub Pages URL
 
 # Enable GitHub Pages Jekyll build
 theme: minima # You can replace this with another theme or remove if using custom CSS
+
+# Collections (Ensure books are processed as pages)
+collections:
+  books:
+    output: true   # ✅ Ensures TOC files in /books/ generate HTML
+    permalink: /books/:name/  # ✅ Pretty URLs (e.g., /books/client_table_of_contents/)
 
 # Include important directories
 include:
@@ -26,3 +32,12 @@ kramdown:
   input: GFM # Enables GitHub-Flavored Markdown (tables, fenced code blocks, etc.)
   auto_ids: true # Generates IDs for headings
   hard_wrap:
+
+  # Permalinks - Ensure clean URLs (no .html)
+permalink: pretty
+
+# Enable future-dated posts/pages
+future: true
+
+# Debugging options
+verbose: true

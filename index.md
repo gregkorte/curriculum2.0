@@ -3,13 +3,19 @@ layout: default
 title: Home
 ---
 
-<div class="header">
-    <img src="{{ "/assets/nss.png" | relative_url }}" alt="Nashville Software School Logo">
-</div>
+# Welcome to My Curriculum
 
+Choose a curriculum to explore:
 
-# Welcome to My Documentation
+<a href="{{ "/books/client_table_of_contents.md" | relative_url }}">
+  <img src="{{ "/assets/js.png" | relative_url }}" alt="JavaScript Curriculum" width="200">
+</a>
 
-This site contains useful guides and information.
+<a href="{{ "/books/server_python_toc.md" | relative_url }}">
+  <img src="{{ "/assets/python.jpg" | relative_url }}" alt="Python Curriculum" width="200">
+</a>
 
-[Go to the Table of Contents](table-of-contents.md)
+<a href="{{ "/books/server_csharp_toc.md" | relative_url }}">
+  <img src="{{ "/assets/csharp.png" | relative_url }}" alt="C# Curriculum" width="200">
+</a>
+

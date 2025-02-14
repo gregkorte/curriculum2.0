@@ -3,12 +3,14 @@ layout: none
 ---
 
 <head>
-  <link rel="stylesheet" href="{{ "../styles/styles.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/styles/style.css" | relative_url }}">
 </head>
 
-# {{ page.title }}
+<div class="header">
+    <img src="{{ "/assets/nss.png" | relative_url }}" alt="Nashville Software School Logo">
+</div>
 
-{% include toc.md %}
+# {{ page.title }}
 
 {{ content }}
 

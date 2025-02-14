@@ -30,7 +30,6 @@ h3 {
 }
 
 /* Code Block Styles */
-/* Code Block Styles */
 pre, code {
   background-color: #272727;
   color: #f8f8f8;
@@ -42,10 +41,11 @@ pre, code {
 }
 
 code {
+  background-color: #333;
+  color: #ffcc66;
   padding: 3px 6px;
-  font-size: 0.9rem;
-  background-color: #2e2e2e;
-  border-radius: 3px;
+  border-radius: 4px;
+  font-size: 0.95rem;
 }
 
 /* Code Block Styles */
@@ -71,8 +71,6 @@ pre code {
   margin: 0;    /* No margin inside the <code> */
   font-size: inherit;  /* Inherit the font size from pre */
 }
-
-
 
 /* Markdown Link Styles */
 a {
@@ -193,28 +191,6 @@ a {
 a:hover {
   color: #ffaa33;
   border-bottom: 1px solid #ffaa33;
-}
-
-/* Code Blocks */
-pre {
-  background-color: #272727;
-  color: #f8f8f8;
-  padding: 15px;
-  border-radius: 5px;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-family: 'Courier New', monospace;
-  line-height: 1.5;
-}
-
-/* Inline Code */
-code {
-  background-color: #333;
-  color: #ffcc66;
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-size: 0.95rem;
 }
 
 /* Blockquote for Notes or Warnings */

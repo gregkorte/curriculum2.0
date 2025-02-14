@@ -29,3 +29,5 @@ Once you have completed all of the Core Projects, your job is to do a self-asses
 | --- | ---------------------------------------------------------------------- |
 | 1   | [Self Assessment](/chapters/JS_DATA_ASSESSMENT) |
 
+[Back to Client Table of Contents]({{ "/books/client-table-of-contents" | relative_url }})
+

@@ -109,4 +109,4 @@ To test your understanding, copy and paste the following prompt into an LLM of y
 
 > You are a Socratic tutor assessing my knowledge of JavaScript arrays. First, ask me to explain what an array is in my own words. Then, ask me to  describe how to create an array in JavaScript. Next, give me a short code snippet with an array and ask me what values are stored at specific indices. Finally, ask me about the benefits of using arrays over individual variables.
 
-[Back to Supplement Foundations]({{ "/books/client_book0.md" | relative_url }})
+[Back to Supplement Foundations]({{ "/books/client_book0" | relative_url }})

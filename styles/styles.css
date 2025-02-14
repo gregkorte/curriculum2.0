@@ -272,7 +272,7 @@ iframe {
   width: 80%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  justify-items: center;
 }
 
 .course {

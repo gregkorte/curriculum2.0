@@ -1,0 +1,28 @@
+title: Curriculum Site
+description: "A structured curriculum for JavaScript, Python, and C#."
+baseurl: "" # Leave empty if using GitHub Pages on the main domain (e.g., yourusername.github.io)
+url: "https://yourusername.github.io/repository-name" # Replace with your GitHub Pages URL
+
+# Enable GitHub Pages Jekyll build
+theme: minima # You can replace this with another theme or remove if using custom CSS
+
+# Include important directories
+include:
+  - books
+  - chapters
+  - styles
+
+# Exclude unnecessary files from the build
+exclude:
+  - .github
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Markdown processing
+markdown: kramdown
+kramdown:
+  input: GFM # Enables GitHub-Flavored Markdown (tables, fenced code blocks, etc.)
+  auto_ids: true # Generates IDs for headings
+  hard_wrap:

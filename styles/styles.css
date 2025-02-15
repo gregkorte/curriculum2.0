@@ -160,3 +160,42 @@ body {
   margin: 0 auto;
   padding: 20px;
   }
+
+  /* Code Block Styles (Monokai Pro Theme) */
+pre, code {
+  background-color: #2D2A2E; /* Monokai Pro Background */
+  color: #FCFCFA; /* Default text color */
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Inline code styles */
+code {
+  background-color: #403E41;
+  color: #FAD000; /* Yellow for inline code */
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Code block styling */
+pre {
+  background-color: #2D2A2E;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+  padding: 15px;
+  border-left: 4px solid #F92672; /* Monokai Pro pink accent */
+}
+
+/* Syntax highlighting */
+pre .keyword { color: #F92672; } /* Pink */
+pre .string { color: #A6E22E; } /* Green */
+pre .function { color: #66D9EF; } /* Blue */
+pre .variable { color: #FD971F; } /* Orange */
+pre .comment { color: #75715E; font-style: italic; } /* Gray */
+pre .number { color: #AE81FF; } /* Purple */

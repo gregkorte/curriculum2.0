@@ -71,18 +71,19 @@ body {
     color: #FCFCFA; /* Default text color */
     padding: 10px;
     border-radius: 8px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Consolas, monaco, monospace;
     font-size: 1rem;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+
   }
 
   /* Inline code styles */
   code {
     /* background-color: #403E41; */
-    color: #FCFCFA; /* Yellow for inline code */
+    /*color: #FCFCFA;  Yellow for inline code */
     padding: 3px 6px;
     border-radius: 4px;
     font-size: 0.95rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   /* Code block styling */
@@ -93,7 +94,7 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
     padding: 15px;
-    border-left: 4px solid #EE2828; /* Monokai Pro pink accent */
+    border-left: 4px solid #EE2828; /* NSS Red accent */
   }
 
   /* Syntax highlighting */

@@ -46,42 +46,32 @@ body {
 
 .nav-right {
   z-index: 10000; /* Moves it in front of the header */
-  width: 100%;
-  bottom: 0;
-  right: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  width: 78%;
+  margin-bottom: -60px;
 }
 
 .nav-right ul {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
 }
 
 .nav-right ul li {
-  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .nav-right ul li a {
   text-decoration: none;
-  color: #333;
-  display: flex;
-  align-items: center;
 }
 
-.nav-right ul li a i {
-  margin-right: 5px;
-}
-
-.fa-home, .fa-arrow-left-circle, .fa-book {
+.fa-home, .fa-arrow-circle-left, .fa-book {
   color: #F05A27;
   font-size: 24px; /* Adjust the size as needed */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
 }
 
-.fa-home:hover, .fa-arrow-left-circle:hover, .fa-book:hover {
+.fa-home:hover, .fa-arrow-circle-left:hover, .fa-book:hover {
   color: #EE2828;
 }
 

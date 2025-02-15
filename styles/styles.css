@@ -68,7 +68,7 @@ body {
 .fa-home, .fa-arrow-circle-left, .fa-book {
   color: #F05A27;
   font-size: 24px; /* Adjust the size as needed */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
 }
 
 .fa-home:hover, .fa-arrow-circle-left:hover, .fa-book:hover {

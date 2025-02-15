@@ -97,7 +97,8 @@ body {
   }
 
   /* Syntax highlighting */
-  pre .keyword { color: #F92672; } /* Pink */
+  pre .c1 { color: #718D5F; } /* Comment Green */
+  pre .kd { color: #F92672; } /* Pink */
   pre .string { color: #A6E22E; } /* Green */
   pre .function { color: #66D9EF; } /* Blue */
   pre .variable { color: #FD971F; } /* Orange */

@@ -21,7 +21,7 @@ body {
   padding: 20px;
   border-bottom: 3px solid #F05A27;
   z-index: 1000; /* Keeps it above other elements */
-  background: #FBF2EC; /* Matches the page background */
+  background: #FFF; /* Matches the page background */
 }
 
 /* Make the Header Gradient Start After Logo */
@@ -32,7 +32,7 @@ body {
   left: 100px; /* Adjust based on logo width */
   width: calc(100% - 100px);
   height: 100%;
-  background: linear-gradient(to right, #FBF2EC 0%, #2D2A2E 100%);
+  background: linear-gradient(to right, #FFF 0%, #2D2A2E 100%);
   z-index: 0; /* Ensures it stays behind content */
 }
 
@@ -97,14 +97,15 @@ body {
   }
 
   /* Syntax highlighting */
-  pre .kd { color: #F92672; } /* Pink */
-  pre .s2 { color: #A6E22E; } /* Green */
-  pre .dl { color: #A6E22E; } /* Green */
-  pre .function { color: #66D9EF; } /* Blue */
-  pre .nx { color: #FD971F; } /* Orange */
-  pre .c1 { color: #75715E; font-style: italic; } /* Gray */
-  pre .mi { color: #AE81FF; } /* Purple */
-  pre .mf { color: #AE81FF; } /* Purple */
+  pre .kd { color: #1f77b4; } /* Keyword Dark Blue */
+  pre .s2 { color: #cb9f73; } /* String Orangey Brown */
+  pre .dl { color: #cb9f73; } /* String Quote Orangey Brown */
+  pre .function { color: #fafad2; } /* Function Yellow */
+  pre .nx { color: #a1c7d4; } /* Variable Light Blue */
+  pre .c1 { color: #718d5f; font-style: italic; } /* Comment Green */
+  pre .cm { color: #718d5f; font-style: italic; } /* Multi-line Comment Green */
+  pre .mi { color: #adbf9e; } /* Number Pale Green */
+  pre .mf { color: #adbf9e; } /* Decimal Pale Green */
   pre .nb { color: #5e95b3 } /* Terminal Blue */
 
   /* Markdown Link Styles */

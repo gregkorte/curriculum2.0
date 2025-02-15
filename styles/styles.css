@@ -80,8 +80,6 @@ body {
   code {
     /* background-color: #403E41; */
     /*color: #FCFCFA;  Yellow for inline code */
-    /* display: block; */
-    white-space: pre-wrap;
     padding: 3px 6px;
     border-radius: 4px;
     font-size: 0.95rem;
@@ -97,6 +95,11 @@ body {
     line-height: 1.5;
     padding: 15px;
     border-left: 4px solid #EE2828; /* NSS Red accent */
+  }
+
+  pre code {
+    display: block;
+    white-space: pre-wrap;
   }
 
   /* Syntax highlighting */

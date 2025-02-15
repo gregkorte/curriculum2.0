@@ -6,41 +6,43 @@ body {
   color: #333;
   margin: 20px;
   padding: 0;
+  padding-top: 120px; /* Prevents content from being hidden under fixed header */
   }
 
- /* Header Styling */
+/* Make Header Full-Width */
 .header {
   display: flex;
   align-items: center;
-  padding: 20px;
+  position: fixed; /* Keeps it at the top */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ensures full-width */
   height: 100px;
+  padding: 20px;
   border-bottom: 3px solid #F05A27;
-  position: relative;
-  overflow: hidden;
-  background: #FFF; /* Matches the page background */
-  margin: 0; /* Removes margins */
+  z-index: 1000; /* Keeps it above other elements */
+  background: #FBF2EC; /* Matches the page background */
 }
 
-/* Gradient Background Starting After Logo */
+/* Make the Header Gradient Start After Logo */
 .header::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 100px; /* Assuming the logo is about 100px wide */
+  left: 100px; /* Adjust based on logo width */
   width: calc(100% - 100px);
   height: 100%;
-  background: linear-gradient(to right, #FFF 0%, #2D2A2E 100%);
-  /* Starts as white (FBF2EC) to match the background, fades to dark grey (2D2A2E) */
+  background: linear-gradient(to right, #FBF2EC 0%, #2D2A2E 100%);
+  z-index: 0; /* Ensures it stays behind content */
 }
 
-/* Logo Styling */
+/* Ensure the Logo Stays Visible */
 .header img {
   height: 80px;
-  margin-right: 20px;
+  margin-left: 20px;
   z-index: 1;
-  background: transparent; /* Ensures it blends seamlessly */
+  background: transparent; /* Prevents unwanted background */
 }
-
 
   /* Typography */
   h1, h2, h3 {
@@ -91,7 +93,7 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
     padding: 15px;
-    border-left: 4px solid #F92672; /* Monokai Pro pink accent */
+    border-left: 4px solid #EE2828; /* Monokai Pro pink accent */
   }
 
   /* Syntax highlighting */

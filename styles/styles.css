@@ -17,7 +17,7 @@ body {
   top: 0;
   left: 0;
   width: 100vw; /* Ensures full-width */
-  height: 80px;
+  height: 60px;
   padding: 20px;
   border-bottom: 3px solid #F05A27;
   z-index: 1000; /* Keeps it above other elements */

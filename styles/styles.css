@@ -80,7 +80,7 @@ body {
   code {
     /* background-color: #403E41; */
     /*color: #FCFCFA;  Yellow for inline code */
-    display: block;
+    /* display: block; */
     white-space: pre-wrap;
     padding: 3px 6px;
     border-radius: 4px;

@@ -44,6 +44,46 @@ body {
   background: transparent; /* Prevents unwanted background */
 }
 
+.nav-right {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-right ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.nav-right ul li {
+  margin-bottom: 10px;
+}
+
+.nav-right ul li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.nav-right ul li a i {
+  margin-right: 5px;
+}
+
+.fa-home, .fa-arrow-left-circle, .fa-book {
+  color: #F05A27;
+  font-size: 24px; /* Adjust the size as needed */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+}
+
+.fa-home:hover, .fa-arrow-left-circle:hover, .fa-book:hover {
+  color: #EE2828;
+}
+
   /* Typography */
   h1, h2, h3 {
   color: #2D2A2E;

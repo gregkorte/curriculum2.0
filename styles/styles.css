@@ -44,27 +44,6 @@ body {
   background: transparent; /* Prevents unwanted background */
 }
 
-.nav-right {
-  z-index: 10000; /* Moves it in front of the header */
-  width: 78%;
-  margin-bottom: -60px;
-}
-
-.nav-right ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  list-style: none;
-}
-
-.nav-right ul li {
-  margin-right: 10px;
-}
-
-.nav-right ul li a {
-  text-decoration: none;
-}
-
 .fa-home, .fa-arrow-circle-left, .fa-book {
   color: #F05A27;
   font-size: 24px; /* Adjust the size as needed */
@@ -223,4 +202,23 @@ body {
   padding: 20px;
   }
 
+  .nav-right {
+    z-index: 10000; /* Moves it in front of the header */
+    width: 78%;
+    margin-bottom: -60px;
+  }
 
+  .nav-right ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+  }
+
+  .nav-right ul li {
+    margin-right: 10px;
+  }
+
+  .nav-right ul li a {
+    text-decoration: none;
+  }

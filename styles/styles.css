@@ -45,7 +45,8 @@ body {
 }
 
 .nav-right {
-  position: absolute;
+  z-index: 10000; /* Moves it in front of the header */
+  width: 100%;
   bottom: 0;
   right: 20px;
   list-style: none;

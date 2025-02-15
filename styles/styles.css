@@ -29,7 +29,7 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 100px; /* Adjust based on logo width */
+  left: 120px; /* Adjust based on logo width */
   width: calc(100% - 100px);
   height: 100%;
   background: linear-gradient(to right, #FFF 0%, #2D2A2E 100%);
@@ -80,10 +80,12 @@ body {
   code {
     /* background-color: #403E41; */
     /*color: #FCFCFA;  Yellow for inline code */
+    display: block;
+    white-space: pre-wrap;
     padding: 3px 6px;
     border-radius: 4px;
     font-size: 0.95rem;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); */
   }
 
   /* Code block styling */

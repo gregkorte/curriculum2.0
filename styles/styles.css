@@ -4,11 +4,40 @@ body {
   line-height: 1.6;
   background-color: #FBF2EC;
   color: #333;
-  margin: 0;
+  margin: 20px;
   padding: 0;
   }
 
-  /* Header Styles */
+  /* Header with Gradient Starting After Image */
+  .header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  height: 100px;
+  border-bottom: 3px solid #F05A27;
+  position: relative;
+  overflow: hidden;
+  background: #FBF2EC;
+  }
+
+  .header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100px; /* Assuming the image width is around 100px */
+  width: calc(100% - 100px);
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #D5D5D6 100%);
+  }
+
+  /* Logo Styling */
+  .header img {
+  height: 80px;
+  margin-right: 20px;
+  z-index: 1;
+  }
+
+  /* Typography */
   h1, h2, h3 {
   color: #F05A27;
   border-bottom: 2px solid #F05A27;
@@ -29,20 +58,20 @@ body {
   font-size: 1.5rem;
   }
 
-  /* Code Block Styles */
+  /* Code Block Styles (Dracula Theme) */
   pre, code {
-  background-color: #272727;
-  color: #EFF0F0;
+  background-color: #282A36;
+  color: #F8F8F2;
   padding: 10px;
-  border-radius: 5px;
-  margin: 0;
+  border-radius: 8px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   code {
-  background-color: #333;
-  color: #F5801E;
+  background-color: #44475A;
+  color: #F8F8F2;
   padding: 3px 6px;
   border-radius: 4px;
   font-size: 0.95rem;
@@ -76,15 +105,15 @@ body {
 
   th, td {
   border: 1px solid #D5D5D6;
-  padding: 8px;
+  padding: 10px;
   text-align: left;
   }
 
   th {
-  background-color: #F2F2F2;
+  background-color: #EFF0F0;
   }
 
-  /* Button-like Link Styles */
+  /* Button Styles */
   button, .interactive-link {
   background-color: #F5801E;
   color: #fff;
@@ -94,10 +123,12 @@ body {
   border: none;
   cursor: pointer;
   text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   button:hover, .interactive-link:hover {
   background-color: #EE2828;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   /* Blockquote Styles */
@@ -111,54 +142,21 @@ body {
 
   /* Practice Section Styles */
   .practice-section {
-  background-color: #E9F7FE;
+  background-color: #EFF0F0;
   border: 2px solid #B0E0F0;
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
   }
 
   .practice-section h3 {
   color: #F05A27;
   }
 
-  /* Header with Gradient Starting After Image */
-  .header {
-  display: flex;
-  align-items: center;
+  /* Container Margins */
+  .container {
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 20px;
-  height: 100px;
-  border-bottom: 2px solid #F05A27;
-  position: relative;
-  overflow: hidden;
-  }
-
-  .header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 80px; /* Assuming the image width is around 80px */
-  width: calc(100% - 80px);
-  height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #FBF2EC 100%);
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  }
-
-  /* Logo Styling */
-  .header img {
-  height: 80px;
-  margin-right: 20px;
-  z-index: 1;
-  }
-
-  .curricula {
-  width: 80%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  }
-
-  .course {
-  display: flex;
   }

@@ -78,7 +78,7 @@ body {
 
   /* Inline code styles */
   code {
-    background-color: #403E41;
+    /* background-color: #403E41; */
     color: #FCFCFA; /* Yellow for inline code */
     padding: 3px 6px;
     border-radius: 4px;

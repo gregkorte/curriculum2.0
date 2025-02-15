@@ -113,7 +113,7 @@ body {
   pre .mi { color: #adbf9e; } /* Number Pale Green */
   pre .mf { color: #adbf9e; } /* Decimal Pale Green */
   pre .nb { color: #5e95b3 } /* Terminal Blue */
-  pre .k { color: #a2778d} /* Action Purple */
+  pre .k { color: #a2778d } /* Action Purple */
 
   /* Markdown Link Styles */
   a {

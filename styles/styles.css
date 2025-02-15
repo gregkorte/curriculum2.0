@@ -8,8 +8,8 @@ body {
   padding: 0;
   }
 
-  /* Header with Gradient Starting After Image */
-  .header {
+ /* Header Styling */
+.header {
   display: flex;
   align-items: center;
   padding: 20px;
@@ -17,30 +17,35 @@ body {
   border-bottom: 3px solid #F05A27;
   position: relative;
   overflow: hidden;
-  background: #FBF2EC;
-  }
+  background: #FFF; /* Matches the page background */
+  margin: 0; /* Removes margins */
+}
 
-  .header::after {
+/* Gradient Background Starting After Logo */
+.header::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 100px; /* Assuming the image width is around 100px */
+  left: 100px; /* Assuming the logo is about 100px wide */
   width: calc(100% - 100px);
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #D5D5D6 100%);
-  }
+  background: linear-gradient(to right, #FFF 0%, #2D2A2E 100%);
+  /* Starts as white (FBF2EC) to match the background, fades to dark grey (2D2A2E) */
+}
 
-  /* Logo Styling */
-  .header img {
+/* Logo Styling */
+.header img {
   height: 80px;
   margin-right: 20px;
   z-index: 1;
-  }
+  background: transparent; /* Ensures it blends seamlessly */
+}
+
 
   /* Typography */
   h1, h2, h3 {
-  color: #F05A27;
-  border-bottom: 2px solid #F05A27;
+  color: #2D2A2E;
+  border-bottom: 2px solid #6B6B6B;
   padding-bottom: 5px;
   margin-bottom: 15px;
   }
@@ -58,31 +63,44 @@ body {
   font-size: 1.5rem;
   }
 
-  /* Code Block Styles (Dracula Theme) */
+  /* Code Block Styles (Monokai Pro Theme) */
   pre, code {
-  background-color: #282A36;
-  color: #F8F8F2;
-  padding: 10px;
-  border-radius: 8px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #2D2A2E; /* Monokai Pro Background */
+    color: #FCFCFA; /* Default text color */
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
+  /* Inline code styles */
   code {
-  background-color: #44475A;
-  color: #F8F8F2;
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-size: 0.95rem;
+    background-color: #403E41;
+    color: #FAD000; /* Yellow for inline code */
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.95rem;
   }
 
+  /* Code block styling */
   pre {
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  line-height: 1.5;
+    background-color: #2D2A2E;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+    padding: 15px;
+    border-left: 4px solid #F92672; /* Monokai Pro pink accent */
   }
+
+  /* Syntax highlighting */
+  pre .keyword { color: #F92672; } /* Pink */
+  pre .string { color: #A6E22E; } /* Green */
+  pre .function { color: #66D9EF; } /* Blue */
+  pre .variable { color: #FD971F; } /* Orange */
+  pre .comment { color: #75715E; font-style: italic; } /* Gray */
+  pre .number { color: #AE81FF; } /* Purple */
 
   /* Markdown Link Styles */
   a {
@@ -161,41 +179,4 @@ body {
   padding: 20px;
   }
 
-  /* Code Block Styles (Monokai Pro Theme) */
-pre, code {
-  background-color: #2D2A2E; /* Monokai Pro Background */
-  color: #FCFCFA; /* Default text color */
-  padding: 10px;
-  border-radius: 8px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-}
 
-/* Inline code styles */
-code {
-  background-color: #403E41;
-  color: #FAD000; /* Yellow for inline code */
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
-
-/* Code block styling */
-pre {
-  background-color: #2D2A2E;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  line-height: 1.5;
-  padding: 15px;
-  border-left: 4px solid #F92672; /* Monokai Pro pink accent */
-}
-
-/* Syntax highlighting */
-pre .keyword { color: #F92672; } /* Pink */
-pre .string { color: #A6E22E; } /* Green */
-pre .function { color: #66D9EF; } /* Blue */
-pre .variable { color: #FD971F; } /* Orange */
-pre .comment { color: #75715E; font-style: italic; } /* Gray */
-pre .number { color: #AE81FF; } /* Purple */

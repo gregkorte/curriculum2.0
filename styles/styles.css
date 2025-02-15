@@ -221,4 +221,5 @@ body {
 
   .nav-right ul li a {
     text-decoration: none;
+    border-bottom: none;
   }

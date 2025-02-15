@@ -97,13 +97,12 @@ body {
   }
 
   /* Syntax highlighting */
-  pre .c1 { color: #718D5F; } /* Comment Green */
   pre .kd { color: #F92672; } /* Pink */
-  pre .string { color: #A6E22E; } /* Green */
+  pre .s2, .dl { color: #A6E22E; } /* Green */
   pre .function { color: #66D9EF; } /* Blue */
-  pre .variable { color: #FD971F; } /* Orange */
-  pre .comment { color: #75715E; font-style: italic; } /* Gray */
-  pre .number { color: #AE81FF; } /* Purple */
+  pre .nx { color: #FD971F; } /* Orange */
+  pre .c1 { color: #75715E; font-style: italic; } /* Gray */
+  pre .mi, .mf { color: #AE81FF; } /* Purple */
 
   /* Markdown Link Styles */
   a {

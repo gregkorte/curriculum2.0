@@ -3,7 +3,7 @@ layout: none
 ---
 
 <head>
-  <link rel="stylesheet" href="{{ "/styles/style" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/styles/styles.css" | relative_url }}">
 </head>
 
 <div class="header">

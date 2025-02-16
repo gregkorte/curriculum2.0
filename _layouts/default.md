@@ -23,9 +23,8 @@ layout: none
                 {% if prev_chapter >= 0 %}
                     {% assign prev_url = "/chapters/b" | append: book | append: "c" | append: prev_chapter | append: "_ARRAYS_INTRO" %}
                     <a href="{{ prev_url | relative_url }}"><i class="fas fa-arrow-circle-left"></i></a>
-                {% else %}
-                    <a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a>
                 {% endif %}
+
             </li>
             <li><a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a></li>
         </ul>

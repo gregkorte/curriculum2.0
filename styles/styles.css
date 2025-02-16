@@ -194,8 +194,9 @@ body {
 
   .nav-right {
     z-index: 10000; /* Moves it in front of the header */
-    width: 78%;
+    width: 100vw;
     margin-bottom: -60px;
+    margin-right: 50px;
   }
 
   .nav-right ul {

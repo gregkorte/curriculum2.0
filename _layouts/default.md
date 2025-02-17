@@ -37,8 +37,8 @@ layout: none
 
                     {% if prev_url != "" %}
                         <a href="{{ prev_url | relative_url }}"><i class="fas fa-arrow-circle-left"></i></a>
-                    {% else %}
-                        <a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a>
+                    <!-- {% else %}
+                        <a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a> -->
                     {% endif %}
                 {% endif %}
             </li>

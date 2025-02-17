@@ -40,7 +40,7 @@ layout: none
                     {% endif %}
                 {% endif %}
             </li>
-            {% if prev_chapter %}
+            {% if prev_url != "/" or page.url == "/" %}
                 <li><a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a></li>
             {% endif %}
         </ul>

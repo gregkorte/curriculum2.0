@@ -14,34 +14,37 @@ layout: none
             {% if page.url != "/" %}
                 <li><a href="{{ "/" | relative_url }}"><i class="fas fa-home"></i></a></li>
             {% endif %}
+                <!-- {% assign current_url = page.url %}
+                {% assign parts = current_url | split: '/' %}
+                {% assign chapter_part = parts.last | split: '_' %}
+                {% assign book_chapter = chapter_part[0] | split: 'c' %}
+                {% assign book = book_chapter[0] | replace: 'b', '' %}
+                {% assign chapter = book_chapter[1] | plus: 0 %} -->
+                {% assign prev_chapter = chapter | minus: 1 %}
+                {% if prev_chapter >= 0 %}
+                    {% assign prev_url = "" %}
+                    {% for page in site.pages %}
+                        {% assign page_parts = page.url | split: '/' %}
+                        {% assign page_chapter_part = page_parts.last | split: '_' %}
+                        {% assign page_book_chapter = page_chapter_part[0] | split: 'c' %}
+                        {% assign page_book = page_book_chapter[0] | replace: 'b', '' %}
+                        {% assign page_chapter = page_book_chapter[1] | plus: 0 %}
 
-            {% assign prev_chapter = chapter | minus: 1 %}
-            {% if prev_chapter >= 0 %}
-                {% assign prev_url = "" %}
-                {% for page in site.pages %}
-                    {% assign page_parts = page.url | split: '/' %}
-                    {% assign page_chapter_part = page_parts.last | split: '_' %}
-                    {% assign page_book_chapter = page_chapter_part[0] | split: 'c' %}
-                    {% assign page_book = page_book_chapter[0] | replace: 'b', '' %}
-                    {% assign page_chapter = page_book_chapter[1] | plus: 0 %}
+                        {% if page_book == book and page_chapter == prev_chapter %}
+                            {% assign prev_url = page.url %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
 
-                    {% if page_book == book and page_chapter == prev_chapter %}
-                        {% assign prev_url = page.url %}
-                        {% break %}
+                    {% if prev_url != "" %}
+                        <li><a href="{{ prev_url | relative_url }}"><i class="fas fa-arrow-circle-left"></i></a></li>
                     {% endif %}
-                {% endfor %}
-
-                {% if prev_url != "" %}
-                    <li><a href="{{ prev_url | relative_url }}"><i class="fas fa-arrow-circle-left"></i></a></li>
                 {% endif %}
-            {% endif %}
-
             {% if book and page.url != "/" %}
-                <li><a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a></li>
-            {% endif %}
+            <li><a href="{{ "/books/client_book" | append: book | relative_url }}"><i class="fas fa-book"></i></a></li>
+        {% endif %}
         </ul>
     </nav>
-
 </div>
 
 <!-- # {{ page.title | markdownify }} -->

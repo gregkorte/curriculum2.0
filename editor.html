@@ -16,22 +16,32 @@
     <h2>JavaScript Coding Challenge</h2>
     <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
 
-    <div id="editor"></div>
+
+    <div class="code-editor">
+      <textarea id="code-example">
+        function add(a, b) {\n    return a + b;\n}
+      </textarea>
+      <button onclick="runCode('code-example')">Run Code</button>
+      <div id="output-example" class="output"></div>
+    </div>
     <button onclick="runCode()">Run Code</button>
     <div id="output"></div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/runmode/runmode.min.js"></script>
     <script>
-        let editor;
-        require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' } });
-        require(['vs/editor/editor.main'], function () {
-            editor = monaco.editor.create(document.getElementById('editor'), {
-                value: `function add(a, b) {\n    return a + b;\n}`,
-                language: 'javascript'
-            });
-        });
+        // let editor;
+        // require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' } });
+        // require(['vs/editor/editor.main'], function () {
+        //     editor = monaco.editor.create(document.getElementById('editor'), {
+        //         value: `function add(a, b) {\n    return a + b;\n}`,
+        //         language: 'javascript'
+        //     });
+        // });
 
-        function runCode() {
-            const userCode = editor.getValue();
+        function runCode(editorId) {
+            const code = document.getElementById(editorId).value;
             const testCases = [
                 { input: [2, 3], expected: 5 },
                 { input: [10, 20], expected: 30 },

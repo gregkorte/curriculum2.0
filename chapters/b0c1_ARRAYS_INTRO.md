@@ -46,7 +46,7 @@ Below are interactive exercises where you can practice working with arrays. Modi
 <script async src="//jsfiddle.net/gczipr/ez6ytfqb/12/embed/js,result/dark/"></script>
 
 ### Accessing Array Elements
-<script async src="//jsfiddle.net/gczipr/sqahvkuf/8/embed/js,result/dark/"></script>
+<iframe src="{{ "/editor.html" | relative_url }}" title="W3Schools Free Online Web Tutorials"></iframe>
 
 ### Modifying an Array
 <script async src="//jsfiddle.net/gczipr/sqahvkuf/9/embed/js,result/dark/"></script>
@@ -104,9 +104,12 @@ Modify the `fruits` array by adding two more fruits of your choice.
 
 ---
 
-## LLM Prompt for Deeper Understanding
+## LLM Prompt for Deeper Understanding (specific AI agent for future)
 To test your understanding, copy and paste the following prompt into an LLM of your choice:
 
 > You are a Socratic tutor assessing my knowledge of JavaScript arrays. First, ask me to explain what an array is in my own words. Then, ask me to  describe how to create an array in JavaScript. Next, give me a short code snippet with an array and ask me what values are stored at specific indices. Finally, ask me about the benefits of using arrays over individual variables.
+
+## Practice LLM prompting
+Paste the solution to your exercise in the LLM prompt, and tell it to refactor your code. Then ask it to analyze both solutions to compare the differences and give you a deeper understanding.
 
 [Back to Supplement Foundations]({{ "/books/client_book0" | relative_url }})

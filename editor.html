@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Sandbox</title>
+    <script src="https://unpkg.com/monaco-editor/min/vs/loader.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #editor { width: 90%; height: 300px; margin: 10px auto; border: 1px solid #ddd; }
+        #output { margin-top: 20px; white-space: pre-line; }
+    </style>
+</head>
+<body>
+​
+    <h2>JavaScript Coding Challenge</h2>
+    <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
+
+    <div id="editor"></div>
+    <button onclick="runCode()">Run Code</button>
+    <div id="output"></div>
+​
+    <script>
+        let editor;
+        require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' } });
+        require(['vs/editor/editor.main'], function () {
+            editor = monaco.editor.create(document.getElementById('editor'), {
+                value: `function add(a, b) {\n    return a + b;\n}`,
+                language: 'javascript'
+            });
+        });
+​
+        function runCode() {
+            const userCode = editor.getValue();
+            const testCases = [
+                { input: [2, 3], expected: 5 },
+                { input: [10, 20], expected: 30 },
+                { input: [-5, 5], expected: 0 }
+            ];
+
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
+​
+            const iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            document.body.appendChild(iframe);
+
+            const iframeWindow = iframe.contentWindow;
+            const iframeDocument = iframe.contentDocument;
+            const script = iframeDocument.createElement("script");
+​
+            script.textContent = `
+                try {
+                    ${userCode}
+                    function runTests() {
+                        let results = [];
+                        const testCases = ${JSON.stringify(testCases)};
+                        for (let test of testCases) {
+                            try {
+                                let result = add(...test.input);
+                                results.push(result === test.expected ? "✅ Passed" : "❌ Failed");
+                            } catch (e) {
+                                results.push("❌ Error in function execution");
+                            }
+                        }
+                        parent.postMessage(results, "*");
+                    }
+                    runTests();
+                } catch (err) {
+                    parent.postMessage(["❌ Code Error: " + err.message], "*");
+                }
+            `;
+
+            iframeDocument.body.appendChild(script);
+​
+            window.addEventListener("message", function receiveMessage(event) {
+                if (event.source === iframeWindow) {
+                    outputDiv.innerHTML = event.data.join("\n");
+                    document.body.removeChild(iframe);
+                    window.removeEventListener("message", receiveMessage);
+                }
+            });
+        }
+    </script>
+​
+</body>
+</html>
+

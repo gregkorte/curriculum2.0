@@ -229,8 +229,6 @@ body {
   iframe {
     border-radius: 8px;
     border-left: 4px solid #EE2828;
-  }
-
-  #full-embed {
-    margin-left: 10px;
+    width: 50%;
+    height: 100vh;
   }

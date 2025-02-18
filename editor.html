@@ -7,94 +7,80 @@
     <script src="https://unpkg.com/monaco-editor/min/vs/loader.js"></script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        #editor { width: 90%; height: 300px; margin: 10px auto; border: 1px solid #ddd; }
+        #code-editor { width: 90%; height: 300px; margin: 10px auto; border: 1px solid #ddd; }
         #output { margin-top: 20px; white-space: pre-line; }
     </style>
 </head>
-<body>
-
+  <body>
     <h2>JavaScript Coding Challenge</h2>
     <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
-
-
     <div class="code-editor">
       <textarea id="code-example">
         function add(a, b) {
           return a + b;
         }
       </textarea>
+      <button onclick="runCode('code-example')">Run Code</button>
       <div id="output-example" class="output"></div>
     </div>
-    <button onclick="runCode('code-example')">Run Code</button>
-    <!-- <button onclick="runCode()">Run Code</button>
-    <div id="output"></div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/runmode/runmode.min.js"></script>
     <script>
-        // let editor;
-        // require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' } });
-        // require(['vs/editor/editor.main'], function () {
-        //     editor = monaco.editor.create(document.getElementById('editor'), {
-        //         value: `function add(a, b) {\n    return a + b;\n}`,
-        //         language: 'javascript'
-        //     });
-        // });
 
-        function runCode(editorId) {
-            const code = document.getElementById(editorId).value;
-            const testCases = [
-                { input: [2, 3], expected: 5 },
-                { input: [10, 20], expected: 30 },
-                { input: [-5, 5], expected: 0 }
-            ];
+      function runCode(editorId) {
+        const code = document.getElementById(editorId).value;
+        const testCases = [
+          { input: [2, 3], expected: 5 },
+          { input: [10, 20], expected: 30 },
+          { input: [-5, 5], expected: 0 }
+        ];
 
-            const outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
+        const outputDiv = document.getElementById("output-example");
+        outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
 
-            const iframe = document.createElement("iframe");
-            iframe.style.display = "none";
-            document.body.appendChild(iframe);
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
 
-            const iframeWindow = iframe.contentWindow;
-            const iframeDocument = iframe.contentDocument;
-            const script = iframeDocument.createElement("script");
+        const iframeWindow = iframe.contentWindow;
+        const iframeDocument = iframe.contentDocument;
+        const script = iframeDocument.createElement("script");
 
-            script.textContent = `
-                try {
-                    ${userCode}
-                    function runTests() {
-                        let results = [];
-                        const testCases = ${JSON.stringify(testCases)};
-                        for (let test of testCases) {
-                            try {
-                                let result = add(...test.input);
-                                results.push(result === test.expected ? "✅ Passed" : "❌ Failed");
-                            } catch (e) {
-                                results.push("❌ Error in function execution");
-                            }
+        script.textContent = `
+            try {
+                ${userCode}
+                function runTests() {
+                    let results = [];
+                    const testCases = ${JSON.stringify(testCases)};
+                    for (let test of testCases) {
+                        try {
+                            let result = add(...test.input);
+                            results.push(result === test.expected ? "✅ Passed" : "❌ Failed");
+                        } catch (e) {
+                            results.push("❌ Error in function execution");
                         }
-                        parent.postMessage(results, "*");
                     }
-                    runTests();
-                } catch (err) {
-                    parent.postMessage(["❌ Code Error: " + err.message], "*");
+                    parent.postMessage(results, "*");
                 }
-            `;
+                runTests();
+            } catch (err) {
+                parent.postMessage(["❌ Code Error: " + err.message], "*");
+            }
+        `;
 
-            iframeDocument.body.appendChild(script);
+        iframeDocument.body.appendChild(script);
 
-            window.addEventListener("message", function receiveMessage(event) {
-                if (event.source === iframeWindow) {
-                    outputDiv.innerHTML = event.data.join("\n");
-                    document.body.removeChild(iframe);
-                    window.removeEventListener("message", receiveMessage);
-                }
-            });
-        }
+        window.addEventListener("message", function receiveMessage(event) {
+            if (event.source === iframeWindow) {
+                outputDiv.innerHTML = event.data.join("\n");
+                document.body.removeChild(iframe);
+                window.removeEventListener("message", receiveMessage);
+            }
+        });
+      }
     </script>
-
-</body>
+  </body>
 </html>
 

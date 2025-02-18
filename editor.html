@@ -19,13 +19,15 @@
 
     <div class="code-editor">
       <textarea id="code-example">
-        function add(a, b) {\n    return a + b;\n}
+        function add(a, b) {
+          return a + b;
+        }
       </textarea>
-      <button onclick="runCode('code-example')">Run Code</button>
       <div id="output-example" class="output"></div>
     </div>
-    <button onclick="runCode()">Run Code</button>
-    <div id="output"></div>
+    <button onclick="runCode('code-example')">Run Code</button>
+    <!-- <button onclick="runCode()">Run Code</button>
+    <div id="output"></div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>

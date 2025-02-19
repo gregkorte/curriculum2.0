@@ -78,14 +78,30 @@
 
           iframeDocument.body.appendChild(script);
 
-          window.addEventListener("message", function receiveMessage(event) {
-            event.preventDefault();
+          function waitForIframeContent(iframe) {
+              return new Promise((resolve) => {
+                  let observer = new MutationObserver(() => {
+                      resolve();
+                      observer.disconnect();
+                  });
+
+                  observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+              });
+          }
+
+          window.addEventListener("message", async function receiveMessage(event) {
             if (event.source === iframeWindow) {
               outputDiv.innerHTML = event.data.join("<br>");
+
+               // Wait for content changes
+              await waitForIframeContent(iframe);
+
+              // Adjust height dynamically
+              iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
+
               document.body.removeChild(iframe);
               window.removeEventListener("message", receiveMessage);
             }
-            iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
           });
         };
       });

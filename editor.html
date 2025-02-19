@@ -4,24 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Sandbox</title>
-    <script src="https://unpkg.com/monaco-editor/min/vs/loader.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        #code-editor { width: 90%; height: auto; margin: 10px auto; border: 1px solid #ddd; }
-        #code-example { width: 80%; height: auto; background-color: #2D2A2E; border-radius: 4px;
-          font-size: 0.95rem;}
+    <!-- <script src="https://unpkg.com/monaco-editor/min/vs/loader.js"></script> -->
+
+    <!-- <style>
+      body { font-family: Arial, sans-serif; text-align: center; }
+      #code-editor { width: 90%; height: auto; margin: 10px auto; border: 1px solid #ddd; }
+      #code-example { width: 80%; height: auto; background-color: #2D2A2E; border-radius: 4px;
+        font-size: 0.95rem;}
         #output { margin-top: 20px; white-space: pre-line; }
-    </style>
+        </style> -->
 </head>
   <body>
-    <h2>JavaScript Coding Challenge</h2>
+    <div id="container" style="width:100%;height:80vh;border:1px solid grey"></div>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
+    <script>
+      require.config({
+        paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs" }
+        });
+      const code = `
+        function add(a, b) {
+          return a + b;
+        }
+      `
+      require(["vs/editor/editor.main"], function () {
+        var editor = monaco.editor.create(document.getElementById("container"), {
+          value: code,
+          language: "typescript",
+          automaticLayout: true
+        });
+      });
+    </script>
+
+    <!-- <h2>JavaScript Coding Challenge</h2>
     <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
     <div class="code-editor">
       <textarea id="code-example">
         function add(a, b) {
           return a + b;
         }
-      </textarea>
+      </textarea> -->
       <button onclick="runCode('code-example')">Run Code</button>
       <div id="output-example" class="output"></div>
     </div>

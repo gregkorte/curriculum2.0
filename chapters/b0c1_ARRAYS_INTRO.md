@@ -43,10 +43,10 @@ In this book of the course, you will learn how to access specific items in an ar
 Below are interactive exercises where you can practice working with arrays. Modify the code in each example and observe the output.
 
 ### Creating an Array
-<!-- <script async src="//jsfiddle.net/gczipr/ez6ytfqb/12/embed/js,result/dark/"></script> -->
+<!-- <iframe src="{{ "/editor.html?exerciseId=b0c1x1" | relative_url }}" title="W3Schools Free Online Web Tutorials"></iframe> -->
 
 ### Accessing Array Elements
-<iframe src="{{ "/editor.html" | relative_url }}" title="W3Schools Free Online Web Tutorials"></iframe>
+<iframe src="{{ "/editor.html?exerciseId=b0c1x1" | relative_url }}" title="W3Schools Free Online Web Tutorials"></iframe>
 
 ### Modifying an Array
 <!-- <script async src="//jsfiddle.net/gczipr/sqahvkuf/9/embed/js,result/dark/"></script> -->

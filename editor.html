@@ -1,83 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Sandbox</title>
-  </head>
-  <body>
-    <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
-    <div id="container" style="width:100%;height:80vh;border:1px solid grey"></div>
-    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
 
-    <script>
-      require.config({
-        paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs" }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Sandbox</title>
+</head>
+
+<body>
+  <script src="data/exercises.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const exerciseId = params.get("exerciseId");
+    const description = exercises[exerciseId].description
+    const codeEditorDefault = exercises[exerciseId].codeEditorDefault
+    const testCases = exercises[exerciseId].testCases
+
+  </script>
+  <p id="title"></p>
+  <div id="container" style="width:100%;height:80vh;border:1px solid grey"></div>
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
+  <script>
+
+    require.config({
+      paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs" }
+    });
+
+    require(["vs/editor/editor.main"], function () {
+      var editor = monaco.editor.create(document.getElementById("container"), {
+        value: codeEditorDefault,
+        language: "javascript",
+        automaticLayout: true
       });
+      monaco.editor.setTheme('vs-dark');
 
-      require(["vs/editor/editor.main"], function () {
-        var editor = monaco.editor.create(document.getElementById("container"), {
-          value: `function add(a, b) {\n  return a + b;\n}`,
-          language: "javascript",
-          automaticLayout: true
-        });
-        monaco.editor.setTheme('vs-dark');
+      window.runCode = function () {
+        const userCode = editor.getValue();
 
-        window.runCode = function () {
-          const userCode = editor.getValue();
-          const testCases = [
-            { input: [2, 3], expected: 5 , fn: "add"},
-            { input: [10, 20], expected: 30, fn: "add"},
-            { input: [-5, 5], expected: 0, fn: "add"}
-          ];
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
 
-          const outputDiv = document.getElementById("output");
-          outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
+        const iframe = document.createElement("iframe");
+        iframe.style.visibility = "hidden";
+        document.body.appendChild(iframe);
 
-          const iframe = document.createElement("iframe");
-          iframe.style.visibility = "hidden";
-          document.body.appendChild(iframe);
+        const iframeWindow = iframe.contentWindow;
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
-          const iframeWindow = iframe.contentWindow;
-          const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        iframeDocument.open();
+        iframeDocument.write("<html><body></body></html>");
+        iframeDocument.close();
 
-          iframeDocument.open();
-          iframeDocument.write("<html><body></body></html>");
-          iframeDocument.close();
+        iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
 
-          iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-
-          const script = iframeDocument.createElement("script");
-          script.textContent = `
-            (function() {
-              function validate(fn){
-                if (typeof window[fn] === "function") {
-                  return true
-                } else {
-                  return false
-                }
-              }
+        const script = iframeDocument.createElement("script");
+        script.textContent = `
+          (function() {
               try {
                 ${userCode}
                 function runTests(){
-                    let results = [];
-                    const testCases = ${JSON.stringify(testCases)};
-                    for (let test of testCases) {
-                        try {
-                            if(validate(test.fn)){
-                              let result = window[test.fn].apply(null, ...test.input);
-                              results.push(
-                                "Expected: " + test.expected + " | " +
-                                "Actual: " + result + " | " +
-                                (result === test.expected ? "✅ Passed" : "❌ Failed")
-                              );
-                            } else {
-                              parent.postMessage("Derp!! Put the damn function back...", "*");
-                            }
+                  let results = [];
+                  const testCases = ${JSON.stringify(testCases)};
+                  for (let test of testCases) {
+                    try {
+                      let result = eval(test.fn).call(null, ...test.input);
+                      results.push(
+                        "Expected: " + test.expected + " | " +
+                        "Actual: " + result + " | " +
+                        (result === test.expected ? "✅ Passed" : "❌ Failed")
+                        );
                         } catch (e) {
-                            results.push("❌ Error: " + e.message);
-                        }
-                    }
+                          results.push("❌ Error: " + e.message);
+                          }
+                          }
                     parent.postMessage(results, "*");
                 }
                 runTests();
@@ -87,54 +82,58 @@
             })();
           `;
 
-          iframeDocument.body.appendChild(script);
+        iframeDocument.body.appendChild(script);
 
-          function waitForIframeContent(iframe) {
-              return new Promise((resolve) => {
-                  let observer = new MutationObserver(() => {
-                      if (iframe.contentWindow.document.body.scrollHeight > 0) {
-                          resolve();
-                          observer.disconnect();
-                      }
-                  });
-
-                  observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
-              });
-          }
-
-          function adjustIframeHeight(iframe) {
-              function updateHeight() {
-                  let newHeight = iframe.contentWindow.document.body.scrollHeight + "px";
-
-                  if (iframe.style.height !== newHeight) {
-                      iframe.style.height = newHeight;
-                      requestAnimationFrame(updateHeight); // Keep adjusting if content expands
-                  }
+        function waitForIframeContent(iframe) {
+          return new Promise((resolve) => {
+            let observer = new MutationObserver(() => {
+              if (iframe.contentWindow.document.body.scrollHeight > 0) {
+                resolve();
+                observer.disconnect();
               }
+            });
 
-              requestAnimationFrame(updateHeight);
+            observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+          });
+        }
+
+        function adjustIframeHeight(iframe) {
+          function updateHeight() {
+            let newHeight = iframe.contentWindow.document.body.scrollHeight + "px";
+
+            if (iframe.style.height !== newHeight) {
+              iframe.style.height = newHeight;
+              requestAnimationFrame(updateHeight); // Keep adjusting if content expands
+            }
           }
 
-          window.addEventListener("message", async function receiveMessage(event) {
-            if (event.source === iframeWindow) {
-              outputDiv.innerHTML = event.data.join("<br>");
+          requestAnimationFrame(updateHeight);
+        }
 
-               // Wait for content changes
-              await waitForIframeContent(iframe);
+        window.addEventListener("message", async function receiveMessage(event) {
+          if (event.source === iframeWindow) {
+            outputDiv.innerHTML = event.data.join("<br>");
 
-              // Adjust height dynamically
-              adjustIframeHeight(iframe);
+            // Wait for content changes
+            await waitForIframeContent(iframe);
 
-              document.body.removeChild(iframe);
-              window.removeEventListener("message", receiveMessage);
-            }
-          });
-        };
-      });
-    </script>
+            // Adjust height dynamically
+            adjustIframeHeight(iframe);
 
-    <button onclick="runCode()">Run Code</button>
-    <div id="output"></div>
+            document.body.removeChild(iframe);
+            window.removeEventListener("message", receiveMessage);
+          }
+        });
+      };
+    });
+  </script>
+  <script>
+    document.getElementById('title').innerHTML = description
+  </script>
 
-  </body>
+  <button onclick="runCode()">Run Code</button>
+  <div id="output"></div>
+
+</body>
+
 </html>

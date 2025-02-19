@@ -80,16 +80,13 @@
                         try {
                             let result = add(...test.input);
                             results.push(result === test.expected
-                            ? "
-                              Expected: test.expected
-                              Actual: result
+                            ? Expected: ${test.expected}
+                              Actual: ${result}
                               ✅ Passed
-                            "
-                            : "
-                              Expected: test.expected
-                              Actual: result
+                            : Expected: ${test.expected}
+                              Actual: ${result}
                               ❌ Failed
-                            ");
+                            );
                         } catch (e) {
                             results.push("❌ Error in function execution");
                         }

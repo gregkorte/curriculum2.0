@@ -79,6 +79,7 @@
           iframeDocument.body.appendChild(script);
 
           window.addEventListener("message", function receiveMessage(event) {
+            event.preventDefault();
             if (event.source === iframeWindow) {
               outputDiv.innerHTML = event.data.join("<br>");
               iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';

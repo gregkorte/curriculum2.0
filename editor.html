@@ -1,77 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Sandbox</title>
-    <!-- <script src="https://unpkg.com/monaco-editor/min/vs/loader.js"></script> -->
-
-    <!-- <style>
-      body { font-family: Arial, sans-serif; text-align: center; }
-      #code-editor { width: 90%; height: auto; margin: 10px auto; border: 1px solid #ddd; }
-      #code-example { width: 80%; height: auto; background-color: #2D2A2E; border-radius: 4px;
-        font-size: 0.95rem;}
-        #output { margin-top: 20px; white-space: pre-line; }
-        </style> -->
-</head>
+  </head>
   <body>
     <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
     <div id="container" style="width:100%;height:80vh;border:1px solid grey"></div>
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
+
     <script>
       require.config({
         paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs" }
-        });
-      const code = `function add(a, b) {
-  return a + b;
-}`
+      });
+
       require(["vs/editor/editor.main"], function () {
         var editor = monaco.editor.create(document.getElementById("container"), {
-          value: code,
+          value: `function add(a, b) {\n  return a + b;\n}`,
           language: "javascript",
           automaticLayout: true
         });
-      });
-    </script>
 
-    <!-- <h2>JavaScript Coding Challenge</h2>
-    <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
-    <div class="code-editor">
-      <textarea id="code-example">
-        function add(a, b) {
-          return a + b;
-        }
-      </textarea> -->
-      <button onclick="runCode('output')">Run Code</button>
-      <div id="output"></div>
-    </div>
+        window.runCode = function () {
+          const userCode = editor.getValue();
+          const testCases = [
+            { input: [2, 3], expected: 5 },
+            { input: [10, 20], expected: 30 },
+            { input: [-5, 5], expected: 0 }
+          ];
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/runmode/runmode.min.js"></script> -->
-    <script>
+          const outputDiv = document.getElementById("output");
+          outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
 
-      function runCode(editorId) {
-        const userCode = document.getElementById(editorId).value;
-        const testCases = [
-          { input: [2, 3], expected: 5 },
-          { input: [10, 20], expected: 30 },
-          { input: [-5, 5], expected: 0 }
-        ];
+          const iframe = document.createElement("iframe");
+          iframe.style.display = "none";
+          document.body.appendChild(iframe);
 
-        const outputDiv = document.getElementById("output");
-        outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
+          const iframeWindow = iframe.contentWindow;
+          const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
+          iframeDocument.open();
+          iframeDocument.write("<html><body></body></html>");
+          iframeDocument.close();
 
-        const iframeWindow = iframe.contentWindow;
-        const iframeDocument = iframe.contentDocument;
-        const script = iframeDocument.createElement("script");
-
-        script.textContent = `
-            try {
+          const script = iframeDocument.createElement("script");
+          script.textContent = `
+            (function() {
+              try {
                 ${userCode}
                 function runTests() {
                     let results = [];
@@ -79,37 +55,39 @@
                     for (let test of testCases) {
                         try {
                             let result = add(...test.input);
-                            results.push(result === test.expected
-                            ? "Expected: "test.expected
-                              "Actual: "result
-                              "✅ Passed"
-                            : "Expected: "test.expected
-                              "Actual: "result
-                              "❌ Failed"
+                            results.push(
+                              "Expected: " + test.expected + " | " +
+                              "Actual: " + result + " | " +
+                              (result === test.expected ? "✅ Passed" : "❌ Failed")
                             );
                         } catch (e) {
-                            results.push("❌ Error in function execution");
+                            results.push("❌ Error: " + e.message);
                         }
                     }
                     parent.postMessage(results, "*");
                 }
                 runTests();
-            } catch (err) {
+              } catch (err) {
                 parent.postMessage(["❌ Code Error: " + err.message], "*");
-            }
-        `;
+              }
+            })();
+          `;
 
-        iframeDocument.body.appendChild(script);
+          iframeDocument.body.appendChild(script);
 
-        window.addEventListener("message", function receiveMessage(event) {
+          window.addEventListener("message", function receiveMessage(event) {
             if (event.source === iframeWindow) {
-                outputDiv.innerHTML = event.data.join("\n");
-                document.body.removeChild(iframe);
-                window.removeEventListener("message", receiveMessage);
+              outputDiv.innerHTML = event.data.join("<br>");
+              document.body.removeChild(iframe);
+              window.removeEventListener("message", receiveMessage);
             }
-        });
-      }
+          });
+        };
+      });
     </script>
+
+    <button onclick="runCode()">Run Code</button>
+    <div id="output"></div>
+
   </body>
 </html>
-

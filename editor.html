@@ -44,6 +44,9 @@
           iframeDocument.write("<html><body></body></html>");
           iframeDocument.close();
 
+          iframe.width = iframe.contentWindow.document.body.scrollWidth;
+          iframe.height = iframe.contentWindow.document.body.scrollHeight;
+
           const script = iframeDocument.createElement("script");
           script.textContent = `
             (function() {
@@ -78,6 +81,8 @@
           window.addEventListener("message", function receiveMessage(event) {
             if (event.source === iframeWindow) {
               outputDiv.innerHTML = event.data.join("<br>");
+              iframe.width = iframe.contentWindow.document.body.scrollWidth;
+              iframe.height = iframe.contentWindow.document.body.scrollHeight;
               document.body.removeChild(iframe);
               window.removeEventListener("message", receiveMessage);
             }

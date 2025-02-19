@@ -82,10 +82,10 @@
             event.preventDefault();
             if (event.source === iframeWindow) {
               outputDiv.innerHTML = event.data.join("<br>");
-              iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
               document.body.removeChild(iframe);
               window.removeEventListener("message", receiveMessage);
             }
+            iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
           });
         };
       });

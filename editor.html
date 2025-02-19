@@ -26,9 +26,9 @@
         window.runCode = function () {
           const userCode = editor.getValue();
           const testCases = [
-            { input: [2, 3], expected: 5 },
-            { input: [10, 20], expected: 30 },
-            { input: [-5, 5], expected: 0 }
+            { input: [2, 3], expected: 5 , fn: "add"},
+            { input: [10, 20], expected: 30, fn: "add"},
+            { input: [-5, 5], expected: 0, fn: "add"}
           ];
 
           const outputDiv = document.getElementById("output");
@@ -50,19 +50,30 @@
           const script = iframeDocument.createElement("script");
           script.textContent = `
             (function() {
+              function validate(fn){
+                if (typeof window[fn] === "function") {
+                  return true
+                } else {
+                  return false
+                }
+              }
               try {
                 ${userCode}
-                function runTests() {
+                function runTests()
                     let results = [];
                     const testCases = ${JSON.stringify(testCases)};
                     for (let test of testCases) {
                         try {
-                            let result = add(...test.input);
-                            results.push(
-                              "Expected: " + test.expected + " | " +
-                              "Actual: " + result + " | " +
-                              (result === test.expected ? "✅ Passed" : "❌ Failed")
-                            );
+                            if(validate(test.fn)){
+                              let result = window[test.fn].apply(null, ...test.input);
+                              results.push(
+                                "Expected: " + test.expected + " | " +
+                                "Actual: " + result + " | " +
+                                (result === test.expected ? "✅ Passed" : "❌ Failed")
+                              );
+                            } else {
+                              parent.postMessage("Derp!! Put the damn function back...", "*");
+                            }
                         } catch (e) {
                             results.push("❌ Error: " + e.message);
                         }

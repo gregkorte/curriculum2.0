@@ -7,7 +7,7 @@
   </head>
   <body>
     <p>Write a function <code>add(a, b)</code> that returns the sum of two numbers.</p>
-    <div id="container" style="width:100%;height:80vh;border:1px solid grey"></div>
+    <div id="container" style="width:100%;height:40vh;border:1px solid grey"></div>
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
 
     <script>
@@ -21,6 +21,7 @@
           language: "javascript",
           automaticLayout: true
         });
+        monaco.editor.setTheme('vs-dark');
 
         window.runCode = function () {
           const userCode = editor.getValue();
@@ -44,8 +45,7 @@
           iframeDocument.write("<html><body></body></html>");
           iframeDocument.close();
 
-          iframe.width = iframe.contentWindow.document.body.scrollWidth;
-          iframe.height = iframe.contentWindow.document.body.scrollHeight;
+          iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
 
           const script = iframeDocument.createElement("script");
           script.textContent = `
@@ -81,8 +81,7 @@
           window.addEventListener("message", function receiveMessage(event) {
             if (event.source === iframeWindow) {
               outputDiv.innerHTML = event.data.join("<br>");
-              iframe.width = iframe.contentWindow.document.body.scrollWidth;
-              iframe.height = iframe.contentWindow.document.body.scrollHeight;
+              iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
               document.body.removeChild(iframe);
               window.removeEventListener("message", receiveMessage);
             }

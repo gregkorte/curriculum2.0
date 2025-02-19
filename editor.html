@@ -81,12 +81,27 @@
           function waitForIframeContent(iframe) {
               return new Promise((resolve) => {
                   let observer = new MutationObserver(() => {
-                      resolve();
-                      observer.disconnect();
+                      if (iframe.contentWindow.document.body.scrollHeight > 0) {
+                          resolve();
+                          observer.disconnect();
+                      }
                   });
 
                   observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
               });
+          }
+
+          function adjustIframeHeight(iframe) {
+              function updateHeight() {
+                  let newHeight = iframe.contentWindow.document.body.scrollHeight + "px";
+
+                  if (iframe.style.height !== newHeight) {
+                      iframe.style.height = newHeight;
+                      requestAnimationFrame(updateHeight); // Keep adjusting if content expands
+                  }
+              }
+
+              requestAnimationFrame(updateHeight);
           }
 
           window.addEventListener("message", async function receiveMessage(event) {
@@ -97,7 +112,7 @@
               await waitForIframeContent(iframe);
 
               // Adjust height dynamically
-              iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
+              adjustIframeHeight(iframe);
 
               document.body.removeChild(iframe);
               window.removeEventListener("message", receiveMessage);

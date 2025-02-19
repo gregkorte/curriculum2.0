@@ -35,7 +35,8 @@
           outputDiv.innerHTML = "<strong>Running Tests...</strong>\n";
 
           const iframe = document.createElement("iframe");
-          iframe.style.display = "none";
+          iframe.style.visibility = "hidden";
+          iframe.style.position = "absolute";
           document.body.appendChild(iframe);
 
           const iframeWindow = iframe.contentWindow;
